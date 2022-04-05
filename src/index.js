@@ -1,11 +1,18 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { Kennel } from "./components/Kennel"
-import "./index.css"
+import React from 'react';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom"
+import { Kennel } from './components/Kennel';
+import './index.css';
 
-ReactDOM.render(
-  <React.StrictMode>
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+root.render(
+  <StrictMode>
+    <Router>
     <Kennel />
-  </React.StrictMode>,
-  document.getElementById('root')
+    </Router>
+  </StrictMode>
 );
+
