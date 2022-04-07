@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { CheckBox } from "./CheckBox"
 
 
 export const PropsAndState = ({ yourName, mycohort, someVars }) => {
