@@ -25,7 +25,7 @@ useEffect(() => {
  return (
         <div className="container-cards">
        {locations.map(location=> 
-       <LocationCard key={location.id} oneLocation={location} />
+       <LocationCard key={location.id} location={location} />
        )}
         </div>
     );
