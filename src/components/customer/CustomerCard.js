@@ -1,9 +1,18 @@
 import React from "react"
 import "./Customer.css"
 
-export const CustomerCard = () => (
-    <section className="customer">
-        <h3 className="customer__name">Name</h3>
-        <div className="customer__address">Location: </div>
-    </section>
-)
+export const CustomerCard = ({customer, handleDeleteCustomer}) => {
+    return (
+        <div className="card">
+        <div className="card-content">
+        <h3>Name: <span className="card-customername">
+            {customer.name}
+          </span></h3>
+          <p>Location: {customer.address}</p>
+          <p>Phone: {customer.phoneNumber}</p>
+          </div>
+          <button type="button" onClick={() => handleDeleteCustomer(customer.id)}>Discharge</button>
+    </div>
+);
+}
+

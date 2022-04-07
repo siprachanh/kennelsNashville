@@ -16,3 +16,4 @@ root.render(
   </StrictMode>
 );
 
+//strictmode has to do with error handling
