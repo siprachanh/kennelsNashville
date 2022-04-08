@@ -7,6 +7,7 @@ import { CustomerList } from './customer/CustomerList.js'
 import { EmployeeList } from './employee/EmployeeList.js'
 import { AnimalDetail } from "./animal/AnimalDetail.js"
 import { AnimalForm } from './animal/AnimalForm'
+import { LocationDetail } from "./location/LocationDetail.js"
 
 export const ApplicationViews = () => {
     return (
@@ -21,9 +22,11 @@ export const ApplicationViews = () => {
                 <Route path="/animals/create" element={<AnimalForm />} />
 
                 <Route path="/animals/:animalId" element={<AnimalDetail />} />
-
+                
                 {/* Render the location list when http://localhost:3000/location */}
-                <Route path="/locations" element={<LocationList />} />
+                <Route exact path="/locations" element={<LocationList />} />
+
+                <Route path="locations/:locationId" element={<LocationDetail />} />
 
                 {/* Render the customer list when http://localhost:3000/customers */}
                 <Route path="/customers" element={<CustomerList />} />
@@ -36,3 +39,4 @@ export const ApplicationViews = () => {
 }
 
 // manages all dif Routes
+// the value x captured by React Router and stored in an animalId property of a specific namespace - props.match.params.animalId
