@@ -20,7 +20,7 @@ export const AnimalDetail = () => {
     // setAnimal({
     //   name: animal.name,
     //   breed: animal.breed
-    // });
+    // }); pass/use the entire animal rather than the deconstructed value to get animal card detail to display 
     setIsLoading(false);
   });
      

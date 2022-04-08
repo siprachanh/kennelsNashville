@@ -8,6 +8,7 @@ export const AnimalCard = ({animal, handleDeleteAnimal}) => {
         <div className="card-content">
           <picture>
               <img src={'/images/dog.jpeg'} alt="My Dog" />
+              {/* img src={'./images/puppy_${animal.id}.png or jpeg`} alt="My Dog"*/}
             </picture>
           <h3>Name: <span className="card-petname">
             {animal.name}
