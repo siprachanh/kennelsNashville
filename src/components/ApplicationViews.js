@@ -6,6 +6,7 @@ import { LocationList } from './location/LocationList.js'
 import { CustomerList } from './customer/CustomerList.js'
 import { EmployeeList } from './employee/EmployeeList.js'
 import { AnimalDetail } from "./animal/AnimalDetail.js"
+import { AnimalForm } from './animal/AnimalForm'
 
 export const ApplicationViews = () => {
     return (
@@ -16,6 +17,8 @@ export const ApplicationViews = () => {
 
                 {/* Render the animal list when http://localhost:3000/animals */}
                 <Route exact path="/animals" element={<AnimalList />} />
+                
+                <Route path="/animals/create" element={<AnimalForm />} />
 
                 <Route path="/animals/:animalId" element={<AnimalDetail />} />
 
@@ -31,3 +34,5 @@ export const ApplicationViews = () => {
         </>
     )
 }
+
+// manages all dif Routes
