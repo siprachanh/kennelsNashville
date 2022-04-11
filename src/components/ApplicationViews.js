@@ -9,15 +9,20 @@ import { AnimalDetail } from "./animal/AnimalDetail.js"
 import { AnimalForm } from './animal/AnimalForm'
 import { LocationDetail } from "./location/LocationDetail.js"
 import { Login } from "./auth/Login.js"
-import { Register } from "./auth/Register"
+import { Register } from "./auth/Register.js"
 import { EmployeeForm } from "./employee/EmployeeForm"
 import { CustomerForm } from "./customer/CustomerForm"
+import { AnimalEditForm } from "./animal/AnimalEditForm"
+import { MadLib } from "./madLib/MadLib.js"
 
 
 
 //pass in the state value of isAuth and method setisAuth as props
 //add conditional logic to check value of isAuth
 //if not a U in session storage, U's should be redirected to login
+//fn is PrivateRoute and passing children, ie AnimalList is child ln 48
+//wrap fn arround a component accepting all compenents that live within
+
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
     const PrivateRoute = ({ children }) => {
         return isAuthenticated ? children : <Navigate to="/login" />;
@@ -27,6 +32,7 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
         sessionStorage.setItem("kennel_customer", JSON.stringify(user))
         setIsAuthenticated(sessionStorage.getItem("kennel_customer") !== null)
     }
+    
     return (
         <>
             <Routes>
@@ -45,31 +51,52 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
                     <AnimalList />
                 </PrivateRoute>
                 } />
-               
+               <Route path="/animals/:animalId/edit" element={
+                 <PrivateRoute>
+                 <AnimalEditForm />
+                </PrivateRoute>
+                } />
                
                 <Route path="/animals/create" element={<AnimalForm />} />
 
-                <Route path="/animals/:animalId" element={<AnimalDetail />} />
+                <Route path="/animals/:animalId" element={
+                 <PrivateRoute>
+                 <AnimalDetail />
+               </PrivateRoute>} />
                 
                 {/* Render the location list when http://localhost:3000/location */}
-                <Route exact path="/locations" element={<LocationList />} />
+                <Route exact path="/locations" element={
+                <PrivateRoute>
+                    <LocationList/>
+                 </PrivateRoute> 
+                } />
 
                 <Route path="locations/:locationId" element={<LocationDetail />} />
 
                 {/* Render the customer list when http://localhost:3000/customers */}
-                <Route path="/customers" element={<CustomerList />} />
+                <Route path="/customers" element={
+                <PrivateRoute>
+                <CustomerList />
+                </PrivateRoute>
+                } />
 
                 <Route path="/customers/create" element={<CustomerForm/>} />
                 
                 {/* Render the employee list when http://localhost:3000/employees */}
-                <Route path="/employees" element={<EmployeeList/>} />
+                <Route path="/employees" element={
+                 <PrivateRoute>
+                 <EmployeeList />
+                </PrivateRoute>
+                } />
 
                 <Route path="/employees/create" element={<EmployeeForm/>} />
+
+                <Route path="/madLib" element={<MadLib/>} />
 
             </Routes>
         </>
     )
 }
 
-// manages all dif Routes
+// manages all different Routes
 // the value x captured by React Router and stored in an animalId property of a specific namespace - props.match.params.animalId

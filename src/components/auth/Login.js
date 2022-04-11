@@ -1,9 +1,10 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
-import { useNavigate} from "react-router-dom"
+import { useNavigate, Route, Routes, navigate } from "react-router-dom";
 import "./Login.css"
 
 export const Login = ({setAuthUser}) => {
+    console.log("setAuthUser")
     const email = useRef()
     const existDialog = useRef()
     const navigate = useNavigate()

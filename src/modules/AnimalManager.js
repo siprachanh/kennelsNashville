@@ -25,3 +25,26 @@ export const addAnimal = newAnimal => {
       body: JSON.stringify(newAnimal)
   }).then(response => response.json())
 }
+export const updateAnimal  = (editedAnimal) => {
+	return fetch(`${remoteURL}/animals/${editedAnimal.id}`, {
+		method: "PATCH",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(editedAnimal)
+	}).then(data => data.json());
+}
+//  patch vs put: patch is specific to one value; whereas put is to an entire object
+// Add this method to the AnimalManager; looking at animals arr and whatever vlue is in index is displaying
+//we are expecting a random Ani id
+// employ getRandomId: 
+export const getRandomId = () => {
+  return fetch(`${remoteURL}/animals`)
+    .then(result => result.json())
+    .then(animals => {
+      const randomIndex = Math.floor(Math.random() * animals.length);
+      const randomAnimal = animals[randomIndex];
+      return randomAnimal.id;
+   //   return animals[randomIndex].id
+  });
+}
