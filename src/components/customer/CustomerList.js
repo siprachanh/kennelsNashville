@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { CustomerCard} from "./CustomerCard";
 import {getAllCustomers, getCustomerById, deleteCustomer} from "../../modules/CustomerManager";
+import { useNavigate } from 'react-router-dom';
 
 export const CustomerList = () => {
     //the initial state is an empty array
     const [customers, setCustomers] = useState([]);
+    const navigate = useNavigate();
     const getCustomers = () => {
         return getAllCustomers()
         .then(customersFromAPI => {
@@ -30,7 +32,16 @@ useEffect(() => {
   
  
   
- return (
+return (
+    //add this button above your display of animal cards
+ <>
+ <section className="section-content">
+     <button type="button"
+     className="btn"
+     onClick={() => {navigate("/customers/create")}}>
+    Add a New Customer/Owner
+        </button>
+    </section>
         <div className="container-cards">
        {customers.map(customer=> 
        <CustomerCard 
@@ -39,5 +50,9 @@ useEffect(() => {
        handleDeleteCustomer= {handleDeleteCustomer} />
        )}
         </div>
+        </>
     );
-};
+}
+
+  
+

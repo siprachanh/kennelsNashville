@@ -10,6 +10,8 @@ import { AnimalForm } from './animal/AnimalForm'
 import { LocationDetail } from "./location/LocationDetail.js"
 import { Login } from "./auth/Login.js"
 import { Register } from "./auth/Register"
+import { EmployeeForm } from "./employee/EmployeeForm"
+import { CustomerForm } from "./customer/CustomerForm"
 
 
 
@@ -56,9 +58,14 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
 
                 {/* Render the customer list when http://localhost:3000/customers */}
                 <Route path="/customers" element={<CustomerList />} />
+
+                <Route path="/customers/create" element={<CustomerForm/>} />
                 
                 {/* Render the employee list when http://localhost:3000/employees */}
                 <Route path="/employees" element={<EmployeeList/>} />
+
+                <Route path="/employees/create" element={<EmployeeForm/>} />
+
             </Routes>
         </>
     )
