@@ -30,16 +30,16 @@ export const MadLib = () => {
 
 return (
     <> 
-    Would it surprise you to learn that the most majestic {MadLib.pluralNoun1} in 
-    the world eat garbage? Well, they do! Everything from {MadLib.adjective1} 
-    soda cans to {MadLib.noun}-stained {MadLib.typeOfFood} boxes to used 
-    {MadLib.articleOfClothing} - and more! Some have been spotted {MadLib.verbEndingIning} 
-    dumpsters and then using their long {MadLib.pluralNoun2} to spear as
-    many bags of {MadLib.pluralNoun3} as they can before being caught. According
-    to an interview with the {MadLib.numberVal} Minutes News, {MadLib.celebrity} once came
-    home to find a/an {MadLib.color} unicorn {MadLib.verbEndingIning2} up in the 
-    recycling bin. The poor thing had mistaken leftover type of food for 
-    dried up {MadLib.pluralNoun}. "It was a/an {MadLib.adjective3} mistake. I am a good cook!"
+    Would it surprise you to learn that the most majestic {madLib.pluralNoun1} in 
+    the world eat garbage? Well, they do! Everything from {madLib.adjective1} 
+    soda cans to {madLib.noun}-stained {madLib.typeOfFood} boxes to used 
+    {madLib.articleOfClothing} - and more! Some have been spotted {madLib.verbEndingIning} 
+    dumpsters and then using their long {madLib.pluralNoun2} to spear as
+    many bags of {madLib.pluralNoun3} as they can before being caught. According
+    to an interview with the {madLib.numberVal} Minutes News, {madLib.celebrity} once came
+    home to find a/an {madLib.color} unicorn {madLib.verbEndingIning2} up in the 
+    recycling bin. The poor thing had mistaken leftover {madLib.typeOfFood} for 
+    dried up {madLib.pluralNoun}. "It was a/an {madLib.adjective3} mistake. I am a good cook!"
     </>
 );
 }

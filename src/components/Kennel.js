@@ -35,3 +35,4 @@ export const Kennel = () => {
 //then pass approproriate props to NavBar and AppViews
 //look inside sessionStor for a User
 //isAuth
+//refactor appViews to passin the state value of isAuth and the method setIsAuth as props
