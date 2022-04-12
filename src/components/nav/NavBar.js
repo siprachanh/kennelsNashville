@@ -30,7 +30,7 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
             </li>} 
         {isAuthenticated
             ? <li className="navbar__item">
-                <span className="navbar__link" onClick={handleLogout}> Logout </span>
+                <span className="navbar__link logout" onClick={handleLogout}> Logout </span>
             </li>
             : <li className="navbar__item">
                 <Link className="navbar__link" to="/login">Login</Link>
@@ -38,3 +38,6 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
         </ul>
     );
 }
+// line 31-37 ternary: if this do this, else do this 
+// div is a block element; whereas span takes in line (does not require space above and below)
+//link allows react to stay in single page app vs anchor <a> tag 
